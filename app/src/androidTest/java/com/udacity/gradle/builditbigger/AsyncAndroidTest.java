@@ -21,7 +21,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 @RunWith(AndroidJUnit4.class)
 public class AsyncAndroidTest {
     @Rule
-    public ActivityTestRule<MainActivity> mainActivityActivityTestRule = new ActivityTestRule<>(MainActivity.class);
+    public ActivityTestRule<MainActivityFlavor> mainActivityActivityTestRule = new ActivityTestRule<>(MainActivityFlavor.class);
     @Test
     public void checkJokeIsRetrievedFromServer(){
         onView(withId(R.id.tell_joke_button)).perform(click());

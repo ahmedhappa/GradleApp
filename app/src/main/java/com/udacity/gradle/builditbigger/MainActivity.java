@@ -12,8 +12,6 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 import com.example.androidjokes.JokesActivity;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
@@ -25,16 +23,12 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
     ProgressBar progressBar;
-    private InterstitialAd interstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         progressBar = findViewById(R.id.my_progress_bar);
-        interstitialAd = new InterstitialAd(this);
-        interstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
-        interstitialAd.loadAd(new AdRequest.Builder().build());
     }
 
 
@@ -107,9 +101,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(context, JokesActivity.class);
                 intent.putExtra("joke", s);
                 startActivity(intent);
-                if (interstitialAd.isLoaded()) {
-                    interstitialAd.show();
-                }
             }
         }
     }
